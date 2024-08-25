@@ -20,6 +20,17 @@ export default function Home() {
         <meta property="og:image" content="/favicon.png" />
         <meta property="og:url" content="https://builderhut.club" />
         <meta name="twitter:card" content="summary_large_image" />
+        <meta property="og:title" content="BuilderHut" />
+        <meta property="og:description" content="BuilderHut - Building a place where people can build cool shit because I got inspired by buildspace." />
+        <meta property="og:image" content="https://builderhut.club/../../public/favicon.png" />
+        <meta property="og:url" content="https://builderhut.club" />
+        <meta property="og:type" content="website" />
+        <meta property="og:site_name" content="BuilderHut" />
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:site" content="@builderhutclub" />
+        <meta name="twitter:title" content="BuilderHut" />
+        <meta name="twitter:description" content="BuilderHut - Building a place where people can build cool shit because I got inspired by buildspace." />
+        <meta name="twitter:image" content="https://builderhut.club/../../public/favicon.png" />
       </Head>
 
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-black via-gray-800 to-gray-900 p-6 overflow-hidden">
