@@ -33,8 +33,31 @@ export default function Home() {
         <meta name="twitter:image" content="https://builderhut.club/../../public/favicon.png" />
       </Head>
 
+      {/* Navigation Bar */}
+      <nav className="fixed top-4 left-4 right-4 z-50 bg-gray-500 bg-opacity-20 backdrop-filter backdrop-blur-lg shadow-lg rounded-xl">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="flex items-center justify-between h-16">
+            <div className="flex items-center">
+              <Image 
+                src={favicon} 
+                alt="BuilderHut Logo" 
+                width={40} 
+                height={40} 
+                className="rounded-full"
+              />
+              <span className="ml-2 text-xl font-bold text-white">builderhut</span>
+            </div>
+            <div className="flex space-x-6">
+              <Link href="#about" className="text-white hover:text-gray-300 transition-colors duration-300 text-lg font-semibold tracking-wide hover:underline transform hover:scale-105">About us</Link>
+              <Link href="#join" className="text-white hover:text-gray-300 transition-colors duration-300 text-lg font-semibold tracking-wide hover:underline transform hover:scale-105">Join us</Link>
+              <Link href="#s1" className="text-white hover:text-gray-300 transition-colors duration-300 text-lg font-semibold tracking-wide hover:underline transform hover:scale-105">s1</Link>
+            </div>
+          </div>
+        </div>
+      </nav>
+
       <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-black via-gray-800 to-gray-900 p-6 overflow-hidden">
-        <div className="text-center space-y-4 animate-fade-in-up">
+        <div className="text-center space-y-8 animate-fade-in-up">
           {/* Floating Particles Background */}
           <div className="absolute inset-0 overflow-hidden">
             <div className="relative w-full h-full">
@@ -45,7 +68,7 @@ export default function Home() {
           </div>
 
           {/* Logo Animation */}
-          <div className="animate-spin-slow">
+          <div className="animate-spin-slow mb-8">
             <Image 
               src={favicon} 
               alt="BuilderHut Logo" 
@@ -56,24 +79,37 @@ export default function Home() {
           </div>
 
           {/* Main Title with Typing Animation */}
-          <h1 className="text-6xl md:text-8xl font-extrabold text-white drop-shadow-lg animate-pulse">
+          <h1 className="text-6xl md:text-8xl font-extrabold text-white drop-shadow-lg animate-pulse mb-6">
             <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
               builderhut
             </span>
           </h1>
 
           {/* Subtitle with Fade-in Animation */}
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium opacity-0 animate-fade-in-up">
+          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium opacity-0 animate-fade-in-up mb-10">
             Building a place where people can build cool shit because I got inspired by Buildspace.
           </p>
         </div>
 
         {/* Join Button with Hover Effects and Bounce Animation */}
         <Link href="https://forms.gle/SNnZVLBNxK1CiTzMA">
-          <button className="mt-10 text-2xl font-semibold text-white bg-gray-800 hover:bg-gray-700 px-8 py-4 rounded-full shadow-2xl transition-transform transform hover:-translate-y-2 hover:scale-105 active:translate-y-0 active:scale-100 animate-bounce-slow">
+          <button className="mt-12 text-2xl font-semibold text-white bg-gray-800 hover:bg-gray-700 px-10 py-5 rounded-full shadow-2xl transition-transform transform hover:-translate-y-2 hover:scale-105 active:translate-y-0 active:scale-100 animate-bounce-slow">
             join builderhut
           </button>
         </Link>
+
+        {/* Join Core Team Section */}
+        <div className="mt-40 text-center space-y-16 animate-fade-in-up px-8 py-8">
+          <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">Join the BuilderHut Core Team</h2>
+          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-16">
+            Are you passionate about building and want to make a bigger impact? Join our core team and help shape the future of BuilderHut!
+          </p>
+          <Link href="/core-team-application">
+            <button className="text-xl mt-8 font-semibold text-white bg-gray-800 hover:bg-gray-700 px-12 py-6 rounded-full shadow-xl transition-transform transform hover:-translate-y-1 hover:scale-105 active:translate-y-0 active:scale-100">
+              Apply to Core Team
+            </button>
+          </Link>
+        </div>
 
         {/* Floating Shapes for Extra Flair */}
         <div className="absolute top-1/3 left-10 w-12 h-12 bg-gray-500 rounded-full shadow-lg animate-float hover:animate-none hover:bg-gray-400"></div>
