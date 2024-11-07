@@ -8,33 +8,23 @@ export default function Home() {
   return (
     <>
       <Head>
-        {/* SEO Optimizations */}
-        <title>BuilderHut - Build Cool Stuff with Us</title>
-        <meta name="description" content="BuilderHut is a community-driven platform where creators come together to build innovative projects. Join us and turn your ideas into reality!" />
-        <meta name="keywords" content="BuilderHut, build projects, community for creators, buildspace inspired" />
+        <title>BuilderHut - Create Your Portfolio in Minutes</title>
+        <meta name="description" content="Create and deploy your professional portfolio website instantly. Choose from beautiful templates or start from scratch - no coding required." />
+        <meta name="keywords" content="portfolio builder, freelancer portfolio, instant website, portfolio templates" />
         <meta name="author" content="BuilderHut" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="icon" href="/favicon.png" />
-        <meta property="og:title" content="BuilderHut - Build Cool Stuff with Us" />
-        <meta property="og:description" content="BuilderHut is a community-driven platform where creators come together to build innovative projects. Join us and turn your ideas into reality!" />
+        <meta property="og:title" content="BuilderHut - Instant Portfolio Websites" />
+        <meta property="og:description" content="Create and deploy your professional portfolio website instantly. Choose from beautiful templates or start from scratch - no coding required." />
         <meta property="og:image" content="/favicon.png" />
         <meta property="og:url" content="https://builderhut.club" />
         <meta name="twitter:card" content="summary_large_image" />
-        <meta property="og:title" content="BuilderHut" />
-        <meta property="og:description" content="BuilderHut - Building a place where people can build cool shit because I got inspired by buildspace." />
-        <meta property="og:image" content="https://builderhut.club/../../public/favicon.png" />
-        <meta property="og:url" content="https://builderhut.club" />
-        <meta property="og:type" content="website" />
-        <meta property="og:site_name" content="BuilderHut" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:site" content="@builderhutclub" />
         <meta name="twitter:title" content="BuilderHut" />
-        <meta name="twitter:description" content="BuilderHut - Building a place where people can build cool shit because I got inspired by buildspace." />
-        <meta name="twitter:image" content="https://builderhut.club/../../public/favicon.png" />
+        <meta name="twitter:description" content="Create stunning portfolio websites in minutes" />
+        <meta name="twitter:image" content="/favicon.png" />
       </Head>
 
-      {/* Navigation Bar */}
-      <nav className="fixed top-4 left-4 right-4 z-50 bg-gray-500 bg-opacity-20 backdrop-filter backdrop-blur-lg shadow-lg rounded-xl">
+      <nav className="fixed top-4 left-4 right-4 z-50 bg-black shadow-lg rounded-xl border border-gray-800 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16">
             <div className="flex items-center">
@@ -43,219 +33,193 @@ export default function Home() {
                 alt="BuilderHut Logo" 
                 width={40} 
                 height={40} 
-                className="rounded-full"
+                className="rounded-full hover:scale-105 transition-transform"
               />
               <span className="ml-2 text-xl font-bold text-white">builderhut</span>
             </div>
-            <div className="flex space-x-6">
-              <Link href="#about" className="text-white hover:text-gray-300 transition-colors duration-300 text-lg font-semibold tracking-wide hover:underline transform hover:scale-105">About us</Link>
-              <Link href="#join" className="text-white hover:text-gray-300 transition-colors duration-300 text-lg font-semibold tracking-wide hover:underline transform hover:scale-105">Join us</Link>
-              <Link href="#s1" className="text-white hover:text-gray-300 transition-colors duration-300 text-lg font-semibold tracking-wide hover:underline transform hover:scale-105">s1</Link>
+            <div className="flex space-x-4">
+              <Link href="/signin">
+                <button className="px-6 py-2 text-white border border-transparent bg-black hover:border-orange-500/50 rounded-lg transition-all duration-300 animate-border-shimmer">
+                  Sign In
+                </button>
+              </Link>
+              <Link href="/signup">
+                <button className="px-6 py-2 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300">
+                  Sign Up
+                </button>
+              </Link>
             </div>
           </div>
         </div>
       </nav>
 
-      <main className="flex min-h-screen flex-col items-center justify-center bg-gradient-to-br from-black via-gray-800 to-gray-900 p-6 overflow-hidden">
-        <div className="text-center space-y-8 animate-fade-in-up">
-          {/* Floating Particles Background */}
-          <div className="absolute inset-0 overflow-hidden">
-            <div className="relative w-full h-full">
-              <div className="absolute w-72 h-72 bg-gray-600 rounded-full blur-3xl opacity-30 top-10 left-10 transform animate-pulse-fast"></div>
-              <div className="absolute w-64 h-64 bg-gray-700 rounded-full blur-3xl opacity-30 bottom-10 right-10 transform animate-pulse-slow"></div>
-              <div className="absolute w-96 h-96 bg-gray-800 rounded-full blur-3xl opacity-30 bottom-32 left-1/2 transform -translate-x-1/2 animate-pulse-medium"></div>
-            </div>
-          </div>
+      <main className="flex min-h-screen flex-col items-center justify-start bg-black pt-32 p-6 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute top-1/4 left-10 w-32 h-32 bg-orange-500 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-orange-600 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-orange-400 rounded-full blur-3xl opacity-10 animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-orange-700 rounded-full blur-3xl opacity-10 animate-pulse"></div>
 
-          {/* Logo Animation */}
-          <div className="animate-spin-slow mb-8">
-            <Image 
-              src={favicon} 
-              alt="BuilderHut Logo" 
-              width={200} 
-              height={200} 
-              className="rounded-full shadow-2xl transform hover:scale-110 transition-transform duration-500 grayscale"
-            />
-          </div>
-
-          {/* Main Title with Typing Animation */}
-          <h1 className="text-6xl md:text-8xl font-extrabold text-white drop-shadow-lg animate-pulse mb-6">
-            <span className="bg-clip-text text-transparent bg-gradient-to-r from-white to-gray-400">
-              builderhut
+        {/* Rest of the code remains exactly the same as the previous edit, starting from Hero Section to the end */}
+        {/* Hero Section */}
+        <div className="text-center space-y-6 max-w-4xl mx-auto relative z-10">
+          <h1 className="text-5xl md:text-7xl font-bold text-white mb-6">
+            Build Your Portfolio
+            <span className="block mt-2 bg-gradient-to-r from-orange-400 to-orange-600 bg-clip-text text-transparent">
+              In Just Minutes
             </span>
           </h1>
-
-          {/* Subtitle with Fade-in Animation */}
-          <p className="text-xl md:text-2xl text-gray-300 max-w-3xl mx-auto font-medium opacity-0 animate-fade-in-up mb-10">
-            Building a place where people can build cool shit because I got inspired by Buildspace.
+          
+          <p className="text-xl text-gray-400 mb-8">
+            Choose a template, customize it, and get your professional portfolio online instantly.
+            No coding required.
           </p>
+
+          <div className="flex flex-col sm:flex-row gap-4 justify-center">
+            <Link href="/create">
+              <button className="group px-8 py-4 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg text-white font-bold text-lg transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/25">
+                Start Building
+                <span className="inline-block ml-2 transform group-hover:translate-x-1 transition-transform">→</span>
+              </button>
+            </Link>
+            <Link href="#features">
+              <button className="px-8 py-4 bg-gray-800 rounded-lg text-white font-bold text-lg transition-all duration-300 hover:bg-gray-700 transform hover:-translate-y-1">
+                Explore Features
+              </button>
+            </Link>
+          </div>
         </div>
 
-        {/* Join Button with Hover Effects and Bounce Animation */}
-        <Link href="https://forms.gle/SNnZVLBNxK1CiTzMA">
-          <button className="mt-12 text-2xl font-semibold text-white bg-gray-800 hover:bg-gray-700 px-10 py-5 rounded-full shadow-2xl transition-transform transform hover:-translate-y-2 hover:scale-105 active:translate-y-0 active:scale-100 animate-bounce-slow">
-            join builderhut
-          </button>
-        </Link>
+        {/* Pricing Section */}
+        <div id="pricing" className="mt-32 w-full max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-white mb-16 text-center">Simple, Transparent Pricing</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-black p-8 rounded-xl border border-gray-800 hover:border-orange-500 transition-all duration-300">
+              <h3 className="text-2xl font-bold text-white mb-4">Monthly</h3>
+              <div className="text-3xl font-bold text-orange-500 mb-6">$5/month</div>
+              <ul className="text-gray-400 space-y-4 mb-8">
+                <li>✓ 3 Websites</li>
+                <li>✓ 100+ Templates</li>
+                <li>✓ No Code Editor</li>
+                <li>✓ Access to Template Code</li>
+              </ul>
+              <Link href="/pricing/monthly">
+                <button className="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300">
+                  Learn More
+                </button>
+              </Link>
+            </div>
 
-        {/* Join Core Team Section */}
-        <div className="mt-40 text-center space-y-16 animate-fade-in-up px-8 py-8">
-          <h2 className="text-4xl md:text-5xl font-bold text-white mb-12">Join the BuilderHut Core Team</h2>
-          <p className="text-xl text-gray-300 max-w-3xl mx-auto mb-16">
-            Are you passionate about building and want to make a bigger impact? Join our core team and help shape the future of BuilderHut!
-          </p>
-          <Link href="/core-team-application">
-            <button className="text-xl mt-8 font-semibold text-white bg-gray-800 hover:bg-gray-700 px-12 py-6 rounded-full shadow-xl transition-transform transform hover:-translate-y-1 hover:scale-105 active:translate-y-0 active:scale-100">
-              Apply to Core Team
+            <div className="bg-black p-8 rounded-xl border border-gray-800 hover:border-orange-500 transition-all duration-300">
+              <h3 className="text-2xl font-bold text-white mb-4">Yearly</h3>
+              <div className="text-3xl font-bold text-orange-500 mb-6">$55/year</div>
+              <ul className="text-gray-400 space-y-4 mb-8">
+                <li>✓ 5 Websites</li>
+                <li>✓ Everything in Monthly</li>
+                <li>✓ No Cost Deployment</li>
+              </ul>
+              <Link href="/pricing/yearly">
+                <button className="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300">
+                  Learn More
+                </button>
+              </Link>
+            </div>
+
+            <div className="bg-black p-8 rounded-xl border border-gray-800 hover:border-orange-500 transition-all duration-300">
+              <h3 className="text-2xl font-bold text-white mb-4">Lifetime</h3>
+              <div className="text-3xl font-bold text-orange-500 mb-6">$349</div>
+              <ul className="text-gray-400 space-y-4 mb-8">
+                <li>✓ Unlimited Websites</li>
+                <li>✓ Everything in Yearly</li>
+                <li>✓ Lifetime Access</li>
+              </ul>
+              <Link href="/pricing/lifetime">
+                <button className="w-full px-6 py-3 bg-gradient-to-r from-orange-500 to-orange-600 text-white rounded-lg hover:shadow-lg hover:shadow-orange-500/25 transition-all duration-300">
+                  Learn More
+                </button>
+              </Link>
+            </div>
+          </div>
+        </div>
+
+        {/* How It Works */}
+        <div className="mt-32 w-full max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-white mb-16 text-center">How It Works</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+            <div className="text-center">
+              <div className="text-5xl mb-6">🎯</div>
+              <h3 className="text-xl font-bold text-white mb-4">Choose Template</h3>
+              <p className="text-gray-400">Browse our collection and pick a template that matches your style</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl mb-6">✨</div>
+              <h3 className="text-xl font-bold text-white mb-4">Customize Design</h3>
+              <p className="text-gray-400">Personalize colors, fonts, and layout to match your brand</p>
+            </div>
+            <div className="text-center">
+              <div className="text-5xl mb-6">🚀</div>
+              <h3 className="text-xl font-bold text-white mb-4">Launch Site</h3>
+              <p className="text-gray-400">Deploy your portfolio with one click and share with the world</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Powerful Features */}
+        <div id="features" className="mt-32 w-full max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-white mb-16 text-center">Powerful Features</h2>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="bg-black border border-gray-800 p-8 rounded-xl transition-all duration-300 hover:border-orange-500/50 hover:transform hover:-translate-y-2">
+              <div className="text-4xl mb-4">🎨</div>
+              <h3 className="text-xl font-bold text-white mb-2">Drag & Drop Editor</h3>
+              <p className="text-gray-400">Intuitive interface for easy customization of your portfolio layout</p>
+            </div>
+            <div className="bg-black border border-gray-800 p-8 rounded-xl transition-all duration-300 hover:border-orange-500/50 hover:transform hover:-translate-y-2">
+              <div className="text-4xl mb-4">📱</div>
+              <h3 className="text-xl font-bold text-white mb-2">Responsive Design</h3>
+              <p className="text-gray-400">Your portfolio looks perfect on all devices and screen sizes</p>
+            </div>
+            <div className="bg-black border border-gray-800 p-8 rounded-xl transition-all duration-300 hover:border-orange-500/50 hover:transform hover:-translate-y-2">
+              <div className="text-4xl mb-4">🚀</div>
+              <h3 className="text-xl font-bold text-white mb-2">Fast Performance</h3>
+              <p className="text-gray-400">Lightning-fast loading times with optimized code and assets</p>
+            </div>
+          </div>
+        </div>
+
+        {/* Technology Stack */}
+        <div className="mt-32 w-full max-w-6xl mx-auto">
+          <h2 className="text-4xl font-bold text-white mb-16 text-center">Built with Modern Tech</h2>
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div className="bg-black border border-gray-800 p-6 rounded-xl text-center">
+              <div className="text-3xl mb-3">⚛️</div>
+              <h3 className="text-lg font-bold text-white">React</h3>
+            </div>
+            <div className="bg-black border border-gray-800 p-6 rounded-xl text-center">
+              <div className="text-3xl mb-3">📦</div>
+              <h3 className="text-lg font-bold text-white">Next.js</h3>
+            </div>
+            <div className="bg-black border border-gray-800 p-6 rounded-xl text-center">
+              <div className="text-3xl mb-3">🎨</div>
+              <h3 className="text-lg font-bold text-white">Tailwind CSS</h3>
+            </div>
+            <div className="bg-black border border-gray-800 p-6 rounded-xl text-center">
+              <div className="text-3xl mb-3">☁️</div>
+              <h3 className="text-lg font-bold text-white">Cloud Deploy</h3>
+            </div>
+          </div>
+        </div>
+
+        {/* Call to Action */}
+        <div className="mt-32 mb-16 text-center max-w-3xl mx-auto">
+          <h2 className="text-4xl font-bold text-white mb-8">Ready to Build Your Portfolio?</h2>
+          <p className="text-xl text-gray-400 mb-8">Create your stunning portfolio today with BuilderHut</p>
+          <Link href="/signup">
+            <button className="px-12 py-6 bg-gradient-to-r from-orange-500 to-orange-600 rounded-lg text-white font-bold text-xl transition-all duration-300 transform hover:-translate-y-1 hover:shadow-lg hover:shadow-orange-500/25">
+              Get Started Now
             </button>
           </Link>
         </div>
-
-        {/* Floating Shapes for Extra Flair */}
-        <div className="absolute top-1/3 left-10 w-12 h-12 bg-gray-500 rounded-full shadow-lg animate-float hover:animate-none hover:bg-gray-400"></div>
-        <div className="absolute bottom-1/4 right-14 w-16 h-16 bg-gray-600 rounded-full shadow-lg animate-float-slow hover:animate-none hover:bg-gray-500"></div>
-        <div className="absolute top-1/4 right-20 w-20 h-20 bg-gray-700 rounded-full shadow-lg animate-float-fast hover:animate-none hover:bg-gray-600"></div>
       </main>
-
-      {/* Animations */}
-      <style jsx>{`
-        @keyframes fade-in-up {
-          0% {
-            opacity: 0;
-            transform: translateY(20px);
-          }
-          100% {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-
-        @keyframes pulse-fast {
-          0% {
-            opacity: 0.5;
-            transform: scale(0.95);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes pulse-slow {
-          0% {
-            opacity: 0.5;
-            transform: scale(0.95);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes pulse-medium {
-          0% {
-            opacity: 0.5;
-            transform: scale(0.95);
-          }
-          100% {
-            opacity: 1;
-            transform: scale(1);
-          }
-        }
-
-        @keyframes spin-slow {
-          0% {
-            transform: rotate(0deg);
-          }
-          100% {
-            transform: rotate(360deg);
-          }
-        }
-
-        @keyframes bounce-slow {
-          0%, 20%, 50%, 80%, 100% {
-            transform: translateY(0);
-          }
-          40% {
-            transform: translateY(-20px);
-          }
-          60% {
-            transform: translateY(-10px);
-          }
-        }
-
-        @keyframes float {
-          0% {
-            transform: translateY(0) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-15px) rotate(360deg);
-          }
-          100% {
-            transform: translateY(0) rotate(720deg);
-          }
-        }
-
-        @keyframes float-slow {
-          0% {
-            transform: translateY(0) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-20px) rotate(360deg);
-          }
-          100% {
-            transform: translateY(0) rotate(720deg);
-          }
-        }
-
-        @keyframes float-fast {
-          0% {
-            transform: translateY(0) rotate(0deg);
-          }
-          50% {
-            transform: translateY(-25px) rotate(360deg);
-          }
-          100% {
-            transform: translateY(0) rotate(720deg);
-          }
-        }
-
-        .animate-fade-in-up {
-          animation: fade-in-up 2s ease-in-out forwards;
-        }
-
-        .animate-pulse-fast {
-          animation: pulse-fast 2s infinite alternate;
-        }
-
-        .animate-pulse-slow {
-          animation: pulse-slow 4s infinite alternate;
-        }
-
-        .animate-pulse-medium {
-          animation: pulse-medium 3s infinite alternate;
-        }
-
-        .animate-spin-slow {
-          animation: spin-slow 20s linear infinite;
-        }
-
-        .animate-bounce-slow {
-          animation: bounce-slow 3s infinite;
-        }
-
-        .animate-float {
-          animation: float 5s ease-in-out infinite;
-        }
-
-        .animate-float-slow {
-          animation: float-slow 7s ease-in-out infinite;
-        }
-
-        .animate-float-fast {
-          animation: float-fast 3s ease-in-out infinite;
-        }
-      `}</style>
     </>
   );
 }
