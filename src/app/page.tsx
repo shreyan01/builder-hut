@@ -37,7 +37,7 @@ export default function Home() {
               />
               <span className="ml-2 text-xl font-bold text-white">builderhut</span>
             </div>
-            <div className="flex space-x-4">
+            <div className="flex space-x-2">
               <Link href="/signin">
                 <button className="px-6 py-2 text-white border border-transparent bg-black hover:border-orange-500/50 rounded-lg transition-all duration-300 animate-border-shimmer">
                   Sign In
@@ -48,6 +48,7 @@ export default function Home() {
                   Sign Up
                 </button>
               </Link>
+              <Link href="#pricing"><p className="text-white px-6 py-2 ">Pricing</p></Link>
             </div>
           </div>
         </div>
