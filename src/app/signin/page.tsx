@@ -5,17 +5,76 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs"
+import { useState } from "react"
+import { supabase } from "@/lib/supabase"
 import { FaFacebook, FaGoogle } from 'react-icons/fa'
+import { useRouter } from "next/navigation"
 
 export default function Component() {
+  const router=useRouter()
+  const [email, setEmail] = useState<string>('');
+  const [password, setPassword] = useState<string>('');
+  const [username, setUsername] = useState<string>('');
+  const [loading, setLoading] = useState<boolean>(false);
+  const [error, setError] = useState<string | null>(null);
+  const handleGoogleSignIn = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'google',
+    });
+
+    if (error) {
+      console.error('Error signing in with Google:', error.message);
+    }
+  };
+  const handleFacebookSignIn = async () => {
+    const { error } = await supabase.auth.signInWithOAuth({
+      provider: 'facebook',
+    });
+
+    if (error) {
+      console.error('Error signing in with Facebook:', error.message);
+    }
+  };
+  const handleSignUp = async () => {
+    setLoading(true);
+    setError(null);
+
+    const { data, error } = await supabase.auth.signUp({
+      email,
+      password,
+      options: {
+        data: {
+          username
+        }
+      }
+    });
+
+    if (error) setError(error.message);
+    setLoading(false);
+  };
+  const handleSignIn = async () => {
+    setLoading(true);
+    setError('');
+    const { error } = await supabase.auth.signInWithPassword({
+      email,
+      password,
+    });
+    if (error) {
+      setError(error.message);
+    } else {
+      router.push('/dashboard'); // Redirect to dashboard
+    }
+    
+    setLoading(false);
+  };
   return (
     <div className="min-h-screen flex items-center justify-center bg-black p-4 relative overflow-hidden">
       {/* Orange blur blobs */}
-      <div className="absolute top-0 -left-4 w-72 h-72 bg-orange-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob"></div>
-      <div className="absolute top-0 -right-4 w-72 h-72 bg-orange-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-2000"></div>
-      <div className="absolute -bottom-8 left-20 w-72 h-72 bg-orange-600 rounded-full mix-blend-multiply filter blur-xl opacity-20 animate-blob animation-delay-4000"></div>
+      <div className="absolute bottom-1/4 right-10 w-32 h-32 bg-orange-600 rounded-full blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-1/2 left-1/4 w-24 h-24 bg-orange-400 rounded-full blur-3xl opacity-10 animate-pulse"></div>
+        <div className="absolute bottom-1/3 right-1/4 w-24 h-24 bg-orange-700 rounded-full blur-3xl opacity-10 animate-pulse"></div>
       
-      <Card className="w-full max-w-md border-zinc-800 bg-zinc-950/80 text-white backdrop-blur-sm rounded-2xl p-6">
+      <Card className="w-full max-w-md border-orange-600 bg-zinc-950/80 text-white backdrop-blur-sm rounded-2xl p-6">
         <CardHeader className="space-y-1">
           <CardTitle className="text-2xl font-bold">Welcome back</CardTitle>
           <CardDescription className="text-zinc-400">
@@ -37,7 +96,8 @@ export default function Component() {
                     placeholder="m@example.com"
                     required
                     type="email"
-                    className="border-zinc-800 bg-zinc-900 text-white placeholder:text-zinc-400 rounded-md"
+                    onChange={(e) => setEmail(e.target.value)}
+                    className="border-zinc-800 bg-zinc-900 text-white placeholder:text-zinc-400 rounded-md px-2"
                   />
                 </div>
                 <div className="space-y-2">
@@ -46,10 +106,11 @@ export default function Component() {
                     id="password"
                     required
                     type="password"
-                    className="border-zinc-800 bg-zinc-900 text-white rounded-md"
+                    onChange={(e)=>setPassword(e.target.value)}
+                    className="border-zinc-800 bg-zinc-900 text-white rounded-md px-2"
                   />
                 </div>
-                <Button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 rounded-md">
+                <Button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 rounded-md" onClick={handleSignIn}>
                   Sign In
                 </Button>
                 <div className="relative">
@@ -61,11 +122,11 @@ export default function Component() {
                   </div>
                 </div>
                 <div className="flex space-x-4">
-                  <Button variant="outline" className="flex items-center justify-center w-full bg-zinc-900 border-zinc-800 hover:bg-zinc-800 rounded-md py-2">
+                  <Button onClick={handleFacebookSignIn} variant="outline" className="flex items-center justify-center w-full bg-zinc-900 border-zinc-800 hover:bg-zinc-800 rounded-md py-2">
                     <FaFacebook className="mr-2 h-4 w-4" />
                     Facebook
                   </Button>
-                  <Button variant="outline" className="flex items-center justify-center w-full bg-zinc-900 border-zinc-800 hover:bg-zinc-800 rounded-md py-2">
+                  <Button variant="outline" onClick={handleGoogleSignIn} className="flex items-center justify-center w-full bg-zinc-900 border-zinc-800 hover:bg-zinc-800 rounded-md py-2">
                     <FaGoogle className="mr-2 h-4 w-4" />
                     Google
                   </Button>
@@ -80,7 +141,8 @@ export default function Component() {
                     id="name"
                     placeholder="John Doe"
                     required
-                    className="border-zinc-800 bg-zinc-900 text-white placeholder:text-zinc-400 rounded-md"
+                    className="border-zinc-800 bg-zinc-900 text-white placeholder:text-zinc-400 rounded-md px-2"
+                    onChange={(e)=>setUsername(e.target.value)}
                   />
                 </div>
                 <div className="space-y-2">
@@ -90,7 +152,8 @@ export default function Component() {
                     placeholder="m@example.com"
                     required
                     type="email"
-                    className="border-zinc-800 bg-zinc-900 text-white placeholder:text-zinc-400 rounded-md"
+                    onChange={(e)=>setEmail(e.target.value)}
+                    className="border-zinc-800 bg-zinc-900 text-white placeholder:text-zinc-400 rounded-md px-2"
                   />
                 </div>
                 <div className="space-y-2">
@@ -99,10 +162,11 @@ export default function Component() {
                     id="password-signup"
                     required
                     type="password"
-                    className="border-zinc-800 bg-zinc-900 text-white rounded-md"
+                    onChange={(e)=>setPassword(e.target.value)}
+                    className="border-zinc-800 bg-zinc-900 text-white rounded-md px-2"
                   />
                 </div>
-                <Button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 rounded-md">
+                <Button type="submit" className="w-full bg-orange-600 hover:bg-orange-700 rounded-md" onClick={handleSignUp}>
                   Sign Up
                 </Button>
                 <div className="relative">
@@ -114,11 +178,11 @@ export default function Component() {
                   </div>
                 </div>
                 <div className="flex space-x-4">
-                  <Button variant="outline" className="flex items-center justify-center w-full bg-zinc-900 border-zinc-800 hover:bg-zinc-800 rounded-md py-2">
+                  <Button onClick={handleFacebookSignIn} variant="outline" className="flex items-center justify-center w-full bg-zinc-900 border-zinc-800 hover:bg-zinc-800 rounded-md py-2">
                     <FaFacebook className="mr-2 h-4 w-4" />
                     Facebook
                   </Button>
-                  <Button variant="outline" className="flex items-center justify-center w-full bg-zinc-900 border-zinc-800 hover:bg-zinc-800 rounded-md py-2">
+                  <Button onClick={handleGoogleSignIn} variant="outline" className="flex items-center justify-center w-full bg-zinc-900 border-zinc-800 hover:bg-zinc-800 rounded-md py-2">
                     <FaGoogle className="mr-2 h-4 w-4" />
                     Google
                   </Button>
