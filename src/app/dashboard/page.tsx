@@ -115,7 +115,7 @@ export default function Dashboard() {
           {portfolios.length === 0 && (
             <div className="text-center mt-12">
               <p className="text-white text-xl mb-6">
-                Oops! Looks like you haven't created a portfolio yet.
+                Oops! Looks like you haven&apos;t created a portfolio yet.
               </p>
               <Dialog>
                 <DialogTrigger asChild>
