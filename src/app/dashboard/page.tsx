@@ -128,7 +128,7 @@ export default function Dashboard() {
                   </DialogHeader>
                   <div className="grid gap-4 py-4">
                     <div className="grid gap-2">
-                      <Label htmlFor="name">Name</Label>
+                      <Label htmlFor="name">Name of your Portfolio</Label>
                       <Input
                         id="name"
                         placeholder="Portfolio name"
