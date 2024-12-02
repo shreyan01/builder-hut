@@ -99,7 +99,8 @@
     @apply border-border;
   }
   body {
-    @apply bg-background text-foreground;
+    background-color: black;
+    @apply text-foreground;
   }
 }
 @keyframes blob {
