@@ -37,12 +37,11 @@ export default function Dashboard() {
   }
 
   return (
-    <div className="bg-black min-h-screen flex flex-col">
-      <Header />
+    <div className="bg-black flex flex-col">
+      <Header/>
       <main className="flex-grow p-6">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-3xl font-bold text-white mb-6">Portfolios</h1>
-          
           <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
             <Dialog>
               <DialogTrigger asChild>
@@ -72,9 +71,9 @@ export default function Dashboard() {
                     <Label htmlFor="framework">Framework</Label>
                     <Select onValueChange={setNewPortfolioFramework} value={newPortfolioFramework}>
                       <SelectTrigger className="bg-black border-orange-500 text-white">
-                        <SelectValue placeholder="Select a framework" />
+                        <SelectValue placeholder="Select a framework" className="text-white" />
                       </SelectTrigger>
-                      <SelectContent className="bg-black border border-orange-500">
+                      <SelectContent className="bg-black border text-white border-orange-500">
                         <SelectItem value="next">Next.js</SelectItem>
                         <SelectItem value="sveltekit">SvelteKit</SelectItem>
                         <SelectItem value="astro">Astro</SelectItem>
