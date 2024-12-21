@@ -1,5 +1,4 @@
 'use client'
-
 import React, { useState } from "react"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
@@ -9,6 +8,8 @@ import { Dialog, DialogContent, DialogDescription, DialogHeader, DialogTitle, Di
 import { Select, SelectContent, SelectTrigger, SelectItem, SelectValue } from "@/components/ui/select"
 import { Header } from "@/components/header"
 import { Plus, Edit, Trash2 } from 'lucide-react'
+import AppSidebar from "@/components/dashboard/app-sidebar"
+import { url } from "inspector"
 
 interface Portfolio {
   id: number
@@ -39,6 +40,7 @@ export default function Dashboard() {
   return (
     <div className="bg-black flex flex-col">
       <Header/>
+      <AppSidebar />
       <main className="flex-grow p-6">
         <div className="max-w-6xl mx-auto">
           <h1 className="text-3xl font-bold text-white mb-6">Portfolios</h1>
@@ -51,7 +53,7 @@ export default function Dashboard() {
                   </CardContent>
                 </Card>
               </DialogTrigger>
-              <DialogContent className="bg-black text-white border border-orange-500">
+              <DialogContent className="bg-black text-white border border-orange-500 max-w-md mx-auto">
                 <DialogHeader>
                   <DialogTitle>Create New Portfolio</DialogTitle>
                   <DialogDescription className="text-orange-500">Add a new portfolio to your dashboard.</DialogDescription>
@@ -120,7 +122,7 @@ export default function Dashboard() {
                 <DialogTrigger asChild>
                   <Button className="bg-orange-500 hover:bg-orange-600 text-white">Create Your First Portfolio</Button>
                 </DialogTrigger>
-                <DialogContent className="bg-black text-white border border-orange-500">
+                <DialogContent className="bg-black text-white border border-orange-500 max-w-md mx-auto">
                   <DialogHeader>
                     <DialogTitle>Create New Portfolio</DialogTitle>
                     <DialogDescription className="text-orange-500">Add a new portfolio to your dashboard.</DialogDescription>
@@ -134,7 +136,7 @@ export default function Dashboard() {
                         value={newPortfolioName}
                         onChange={(e) => setNewPortfolioName(e.target.value)}
                         className="bg-black border-orange-500 text-white"
-                      />
+                        />
                     </div>
                     <div className="grid gap-2">
                       <Label htmlFor="framework">Framework</Label>
@@ -165,4 +167,3 @@ export default function Dashboard() {
     </div>
   )
 }
-
