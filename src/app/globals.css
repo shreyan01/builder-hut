@@ -134,3 +134,15 @@
   background-size: 40px 40px;
   color: aliceblue;
 }
+
+@layer components {
+  /* Adjust main content margin based on sidebar state */
+  main {
+    @apply ml-64 transition-all duration-300 ease-in-out;
+  }
+
+  /* When sidebar is collapsed */
+  main.sidebar-collapsed {
+    @apply ml-16;
+  }
+}
